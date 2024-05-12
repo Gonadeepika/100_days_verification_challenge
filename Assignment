@@ -1,0 +1,463 @@
+///////////////////////////////////////////Assinment1111111111111\\\\\\\\\\\\\\\\\\\\\
+
+
+/*module test;
+int da[]={10,2,3,4,7,6,8};
+initial
+begin
+da.sort();
+$display("sorting of array:");
+end
+endmodule*/
+
+/*module test();
+typedef enum bit[2:0] {ENUM_VAL0, ENUM_VAL1,ENUM_VAL2, ENUM_VAL3} my_enum_t;
+initial
+begin
+my_enum_t my_enum_var=ENUM_VAL3;
+$display("current enum value:%0s", my_enum_var.name());
+my_enum_var=my_enum_var.next();
+$display("next enum value:%0s", my_enum_var.name());
+end
+endmodule*/
+
+
+/*module test;
+int k, q[$] ='{1,2,3,4,5,6};
+initial
+begin
+foreach(q[i])
+begin
+k=q.pop_back();
+$display("%d",k);
+end
+$display("%p",q);
+end
+endmodule :test*/
+
+
+/*module test;
+int k, q[$]='{1,2,3,4,5,6};
+initial
+begin
+for(int i=0; i<7; i++)
+begin
+
+k=q.pop_back();
+$display("%0d",k);
+end
+$display("%0p",q);
+end
+enmodule
+
+
+
+
+/*module test;
+int q1[$]='{0,1,5,6,7,8};
+int q2[$]='{2,3,4};
+initial
+begin
+q1={q1,q2};
+//q1={q1[0:1],q2[2:$]};
+$display("%p",q1);
+end
+endmodule*/
+
+
+/*module top;
+int i_num1;
+int r_num2;
+initial
+begin
+i_num1=int '(10.0-1.0);
+$display("the integer value is:%0d",i_num1);
+r_num2=int'(5/3);
+$display("the integer value is:%0d",r_num2);
+end
+endmodule*/
+
+
+
+
+
+
+///////////////////////////////////////////////ASSIGNMENT 222\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/*module test;
+ int d,result;
+  int a=2,b=3;
+  
+   function automatic mult(input int a,input int b,output int c);
+       c=(a*b)+2;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endfunction
+ 
+   initial
+     fork 
+      begin
+       #1;
+       mult(2,3,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       mult(2,4,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule*/
+
+
+
+
+
+/*module test;
+ int d,result;
+  int a=2,b=3;
+  
+   function automatic mult(ref int a,ref int b,output int c);
+       c=(a*b)+2;
+       a++;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endfunction
+ 
+   initial
+     fork 
+      begin
+       #1;
+       //mult(2,3,d);
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       //mult(2,4,d);
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule*/
+
+
+
+
+
+
+/*module test;
+ int d,result;
+  int a=2,b=3;
+  
+   function  mult(input int a,input int b,output int c);
+       c=(a*b)+2;
+       a++;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endfunction
+ 
+   initial
+     fork 
+      begin
+       #1;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule*/
+
+
+
+/*
+module test;
+ int d,result;
+  int a=2,b=3;
+  
+   task automatic mult(input int a,input int b,output int c);
+       c=(a*b)+2;
+       a++;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endtask
+ 
+   initial
+     fork 
+      begin
+       #1;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule
+*/
+
+
+
+
+/*
+module test;
+ int d,result;
+  int a=2,b=3;
+  
+   task automatic mult(input int a,input int b,output int c);
+       c=(a*b)+2;
+       a++;
+        $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endtask
+ 
+   initial
+     fork 
+      begin
+       #1;
+       mult(2,3,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       mult(2,4,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule
+*/
+
+
+
+
+/*class pass_by_ref;
+  int refr=2;
+  int val=2;
+
+   function automatic int check_refer(ref int r);
+                  $display("pass by ref");
+                  $display("initial value of refr=%d",r);
+                  r++;
+                  $display("after incrementing %d",r);
+  endfunction
+  function int check_value(int v);
+                  $display("pass by value");
+                  $display("initial value of value=%d",v);
+                  v++;
+                  $display("after incrementing %d",v);
+   endfunction
+endclass
+
+pass_by_ref h1;
+module test;
+ initial
+  begin
+   h1=new();
+   h1.check_refer(h1.refr);
+   h1.check_value(h1.val);
+   $display("inside memory");
+   $display("%d",h1.refr);
+   $display("%d",h1.val);
+   end
+endmodule*/
+
+
+
+
+
+module test;
+ task dummy_task(input int x,string str);
+   fork
+     begin
+       #x;
+     end
+     begin
+       #10;
+     end
+    join_any
+    disable fork;
+    $display("%s:%t",str,$time);
+    endtask
+   initial
+    fork
+      begin
+        #2;
+        dummy_task(5,"call_1");
+       end
+       begin
+        #1;
+        dummy_task(15,"call_2");
+       end
+     join
+  endmodule
+`
+
+
+
+/*
+module test;
+ int d,result;
+  int a=2,b=3;
+  
+   function automatic mult(input int a,input int b,output int c);
+       c=(a*b)+2;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endfunction
+ 
+   initial
+     fork 
+      begin
+       #1;
+       mult(2,3,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       mult(2,4,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule
+*/
+
+
+
+
+/*
+module test;
+ int d,result;
+  int a=2,b=3;
+  
+   function automatic mult(ref int a,ref int b,output int c);
+       c=(a*b)+2;
+       a++;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endfunction
+ 
+   initial
+     fork 
+      begin
+       #1;
+       //mult(2,3,d);
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       //mult(2,4,d);
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule
+*/
+
+
+
+/*
+module test;
+ int d,result;
+  int a=2,b=3;
+  
+   function  mult(input int a,input int b,output int c);
+       c=(a*b)+2;
+       a++;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endfunction
+ 
+   initial
+     fork 
+      begin
+       #1;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule
+*/
+
+
+
+/*module test;
+ int d,result;
+  int a=2,b=3;
+  
+   task automatic mult(input int a,input int b,output int c);
+       c=(a*b)+2;
+       a++;
+       $display("inside function");
+       $display("$time =%d,a=%d,b=%d,c=%d",$time,a,b,c);
+   endtask
+ 
+   initial
+     fork 
+      begin
+       #1;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+      begin
+       #2;
+       mult(a,b,d);
+       $display("//////");
+       $display("$time =%d,a=%d,b=%d,d=%d",$time,a,b,d);
+      end
+   join
+endmodule*/
+
+
+
+/*module test;
+int ma=20;
+function void pass_by_value(int fa);
+fa=fa*2;
+$display("inside the function pass_by_value fa=%d", fa);
+endfunction : pass_by_value
+
+function automatic void pass_by_ref(ref int fa);
+fa=fa*2;
+$display(" inside the function pass_by_ref fa=%d",fa);
+endfunction:pass_by_ref
+
+initial
+begin
+pass_by_value(ma);
+$display("after calling the function pass_by_value ma=%d", ma);
+pass_by_ref(ma);
+$display("after calling the function pass_by_ref ma=%d", ma);
+end
+endmodule:test*/
+
+
+
+
